@@ -23,26 +23,26 @@ const WeatherData = () => {
           />
         </div>
       )}
-      <div>
-        {forecastWeatherList && <h1>forecast weather</h1>}
+      {forecastWeatherList && <h1>forecast weather</h1>}
+      <div className="grid grid-cols gap-4">
         {forecastWeatherList &&
-          forecastWeatherList.map((forecastElement, i) => (
-            <WeatherCart
-              key={i}
-              name={forecastElement.name}
-              country={forecastElement.sys.country}
-              temperature={forecastElement.main.temp}
-              description={forecastElement.weather[0].description}
-              humidity={forecastElement.main.humidity}
-              clouds={forecastElement.clouds.all}
-              wind={forecastElement.wind.speed}
-              icon={`https://openweathermap.org/img/wn/${forecastElement.weather[0].icon}@2x.png`}
-              date={forecastElement.dt_txt}
-            />
-          ))}
+          forecastWeatherList
+            .slice(0, 10)
+            .map((forecastElement, i) => (
+              <WeatherCart
+                key={i}
+                name={forecastElement.name}
+                country={forecastElement.sys.country}
+                temperature={forecastElement.main.temp}
+                description={forecastElement.weather[0].description}
+                humidity={forecastElement.main.humidity}
+                clouds={forecastElement.clouds.all}
+                wind={forecastElement.wind.speed}
+                icon={`https://openweathermap.org/img/wn/${forecastElement.weather[0].icon}@2x.png`}
+                date={forecastElement.dt_txt}
+              />
+            ))}
       </div>
-
-      
     </div>
   );
 };
