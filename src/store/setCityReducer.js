@@ -26,9 +26,9 @@ export const setCityReducer = (state = initialState, action) => {
       return { ...state, loading: false, weather: action.payload };
     case FETCH_WEATHER_FAILURE:
       return { ...state, loading: false, error: action.payload };
-    case FETCH_WEATHER_SUCCESS:
+    case FETCH_WEATHER_FORECAST_SUCCESS:
       return { ...state, loading: false, forecastWeather: action.payload };
-    case FETCH_WEATHER_FAILURE:
+    case FETCH_WEATHER_FORECAST_FAILURE:
       return { ...state, loading: false, forecastError: action.payload };
     default:
       return state;

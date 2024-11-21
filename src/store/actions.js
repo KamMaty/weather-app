@@ -41,9 +41,8 @@ export const fetchWeather = (city) => async (dispatch) => {
     const weatherForecast = await weatherForecastResponse.json();
     dispatch({
       type: FETCH_WEATHER_FORECAST_SUCCESS,
-      payload: weatherForecast,
+      payload: weatherForecast.list,
     });
-    await console.log(weatherForecast);
   } catch (error) {
     dispatch({ type: FETCH_WEATHER_FAILURE, payload: error.message });
     dispatch({ type: FETCH_WEATHER_FORECAST_FAILURE, payload: error.message });
