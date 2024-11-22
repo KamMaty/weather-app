@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 .detail-card {
-  @apply border border-black bg-indigo-400 w-min content-center;
+  @apply border border-black bg-indigo-400
+   content-center text-xs place-items-center p-1 space-y-1 m-1;
 }

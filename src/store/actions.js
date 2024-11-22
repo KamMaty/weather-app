@@ -18,6 +18,8 @@ export const setWeather = (weatherData) => ({
 export const fetchWeather = (city) => async (dispatch) => {
   dispatch({ type: FETCH_WEATHER_REQUEST });
 
+  //Todo: handle wrong search, add parameter for country
+
   try {
     const userCityResponse = await fetch(
       `${process.env.REACT_APP_API_URL}geo/1.0/direct?q=${city}&limit=2&appid=${process.env.REACT_APP_API_KEY}`
@@ -28,7 +30,7 @@ export const fetchWeather = (city) => async (dispatch) => {
     const userCity = await userCityResponse.json();
 
     const weatherResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}data/2.5/weather?lat=${userCity[0].lat}&lon=${userCity[0].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      `${process.env.REACT_APP_API_URL}data/2.5/weather?lat=${userCity[1].lat}&lon=${userCity[1].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
     );
 
     const userWeather = await weatherResponse.json();
@@ -36,7 +38,7 @@ export const fetchWeather = (city) => async (dispatch) => {
     dispatch({ type: FETCH_WEATHER_SUCCESS, payload: userWeather });
 
     const weatherForecastResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}data/2.5/forecast?lat=${userCity[0].lat}&lon=${userCity[0].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      `${process.env.REACT_APP_API_URL}data/2.5/forecast?lat=${userCity[1].lat}&lon=${userCity[1].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
     );
     const weatherForecast = await weatherForecastResponse.json();
     dispatch({
