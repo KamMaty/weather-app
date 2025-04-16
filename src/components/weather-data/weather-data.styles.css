@@ -1,0 +1,10 @@
+.weather-now{
+    display: grid;
+    padding: 0 10vw;
+    text-align: center;
+    /*gap:15px*/
+}
+
+h1{
+    font-size: 7vw;
+}

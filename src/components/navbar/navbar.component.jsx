@@ -1,14 +1,13 @@
 import logo from "../../assets/logo_transparent.png";
 
+import './navbar.styles.css'
+
 const Navbar = () => {
   return (
-    <div>
-      <div className="flex justify-between p-4">
-        <img src={logo} alt="logo" className="h-8 w-8 mr-4" />
+      <div className='navbar'>
+        <img src={logo} alt="logo" className='logo-img' />
         <span>WeatherApp</span>
       </div>
-      <div className="w-full h-px bg-gray-300"></div>
-    </div>
   );
 };
 

@@ -1,0 +1,23 @@
+.cart-container{
+    border: black solid 1px;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.weather-cloud-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.weather-detials-container{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    padding: 5px;
+    gap: 10px;
+}
+
+header{
+    font-size: 6vw;
+    padding: 5px;
+}

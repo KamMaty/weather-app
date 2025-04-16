@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   city: "",
-  weather: null,
+  meteorologicalData: null,
   loading: false,
   error: null,
   forecastWeather: null,
@@ -23,7 +23,7 @@ export const setCityReducer = (state = initialState, action) => {
     case FETCH_WEATHER_REQUEST:
       return { ...state, loading: true, error: null };
     case FETCH_WEATHER_SUCCESS:
-      return { ...state, loading: false, weather: action.payload };
+      return { ...state, loading: false, meteorologicalData: action.payload };
     case FETCH_WEATHER_FAILURE:
       return { ...state, loading: false, error: action.payload };
     case FETCH_WEATHER_FORECAST_SUCCESS:
